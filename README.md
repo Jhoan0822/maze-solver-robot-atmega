@@ -1,4 +1,7 @@
 # Autonomous Maze-Solving Robot "OrbitALL"
+<p align="center">
+  <img width="450" height="325" alt="logoorbit" src="https://github.com/user-attachments/assets/0d61dc3f-88b2-4053-86c5-337d7e7238ec" />
+</p>
 
 ![Platform](https://img.shields.io/badge/Platform-Atmel%20AVR-orange?style=for-the-badge&logo=atmel)
 ![Language](https://img.shields.io/badge/Language-C-blue?style=for-the-badge&logo=c)
@@ -66,6 +69,10 @@ Smooth and stable line following is achieved via a carefully tuned PID controlle
 -   **Output Clamping:** The final PID output (`diferencial`) is clamped to the maximum motor velocity. This is a critical safety feature that prevents motor saturation and ensures predictable behavior during sharp corrections.
 -   **Differential Drive:** The PID output is applied differentially to the motors (`engines(vel + diferencial, vel)`), allowing for smooth and proportional turning.
 
+
+https://github.com/user-attachments/assets/80a93dc4-50db-4477-9195-93dc8e0657e4
+
+
 **3. Non-Blocking Ultrasonic Sensing (`main.c`)**
 To detect the payload and the goal without halting the main control loop, the firmware uses an interrupt-driven approach for the HC-SR04 ultrasonic sensor:
 -   **Timer1 Input Capture Unit (ICU):** Instead of using blocking `delay` loops to measure the echo pulse, the system configures Timer1's ICU.
@@ -75,9 +82,14 @@ To detect the payload and the goal without halting the main control loop, the fi
 **4. Motor Control Abstraction (`driver.c`)**
 The `engines(izq, der)` function provides a clean interface for motor control. It accepts signed integers, where the sign determines the direction (by setting the H-bridge inputs) and the magnitude sets the speed (by writing to the `OCR0` and `OCR2` PWM registers).
 
+
+https://github.com/user-attachments/assets/32701c79-0ddf-4285-8b6d-af808204edae
+
+
 ---
 
 ### ► Hardware System
+<img width="4217" height="3168" alt="esquemarobot" src="https://github.com/user-attachments/assets/4b5140a7-5f1a-4b01-923d-44b5f24ceb41" />
 
 *   **MCU:** Atmel **Atmega32A** (8-bit AVR).
 *   **Motor Driver:** **TB6612FNG** Dual H-Bridge. Chosen for its higher efficiency and lower voltage drop compared to alternatives like the L298N.
